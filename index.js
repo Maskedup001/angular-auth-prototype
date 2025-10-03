@@ -1,5 +1,4 @@
-// Первый урок 1
-// console.log(1)
+// Первый урок 
 // Массив товаров 
 const products = [
     { name: "Телефон", price: 500, inStock: true },
