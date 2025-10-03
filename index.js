@@ -1,34 +1,26 @@
 // Первый урок 1
 // console.log(1)
-// Второй урок 2
-// const age: number = 35;
-// if (age < 18) {
-// console.log('Доступ запрещён');
-// } 
-// else {
-//     console.log(`Таблица умножения на ${age}:`);
-//     for (let i = 1; i <= 10; i++) {
-//         console.log(`${age} × ${i} = ${age * i}`);
-//     }
-// }
-// Третий урок 3
-// Функция возвращает число или строку (тип number или string)
-function calculate2(a, b, operator) {
-    if (operator === "+")
-        return a + b;
-    if (operator === "-")
-        return a - b;
-    if (operator === "*")
-        return a * b;
-    if (operator === "/")
-        return a / b;
-    // Если оператор не распознан, возвращается строка с ошибкой
-    return "Ошибка: неизвестный оператор";
+// Массив товаров 
+const products = [
+    { name: "Телефон", price: 500, inStock: true },
+    { name: "Ноутбук", price: 1000, inStock: false },
+    { name: "Наушники", price: 100, inStock: true },
+    { name: "Мышь", price: 50, inStock: true },
+    { name: "Клавиатура", price: 80, inStock: false },
+];
+//Только товары в наличии(на складе)
+const A_Products = products.filter(product => product.inStock);
+// Массив цен этих товаров.
+const A_Prices = A_Products.map(product => product.price);
+// Общая сумма товаров в наличии
+let total = 0;
+for (let i = 0; i < A_Products.length; i++) {
+    total += A_Products[i].price;
 }
-//Вывод  
-console.log("Результат:", calculate2(10, 5, "+"));
-console.log("Результат:", calculate2(10, 5, "-"));
-console.log("Результат:", calculate2(10, 5, "*"));
-console.log("Результат:", calculate2(10, 5, "/"));
-// Пример, если оператор не распознан (выведет строку с ошибкой)
-console.log("Результат:", calculate2(10, 5, "$wd"));
+// Сортировка товаров в наличии по цене (от дешёвых к дорогим)
+const Sorted_Products = [...A_Products].sort((a, b) => a.price - b.price);
+// Вывод
+console.log("Товары в наличии:", A_Products);
+console.log("Цены товаров в наличии:", A_Prices);
+console.log("Общая сумма:", total);
+console.log("Отсортированные товары:", Sorted_Products);
