@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cnt-group-praktika';
+	operation: number = (213 + 33) * 5 / 12 - 54;
 }
