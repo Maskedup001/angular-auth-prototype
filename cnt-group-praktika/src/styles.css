@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+	font-family: 'Open Sans 700', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+	
+}
+
+:root {
+  --color-indigo-500: rgb(63, 81, 181);
+  --block-background: white;
+  --block-border-color: rgb(235, 235, 235);
+  --focus-color: rgb(63,81,181);
+  --block-child-background: rgb(236,236,236);
+  --block-child-border-color: #1c2430;
+}

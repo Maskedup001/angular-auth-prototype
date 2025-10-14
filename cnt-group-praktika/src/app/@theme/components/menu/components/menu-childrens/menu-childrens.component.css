@@ -1,0 +1,70 @@
+.submenu {
+  width: 100%;
+}
+
+.submenu ul {
+  width: 100%;
+  padding: 5px;
+  margin: 0;
+  box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+.submenu__item {
+  position: relative;
+  width: 100%; /* Гарантируем растяжение */
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Текст выровнен слева */
+  flex-direction: column; /* Вертикальное расположение */
+  transition: .3s;
+  cursor: pointer;
+  border: 1px solid var(--block-child-border-color, #d3d3d3); /* Рамка */
+  border-radius: 8px; /* Закруглённые углы */
+  background-color: var(--block-child-background, #e8e8e8); /* Фон */
+  box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+.submenu__item:focus-visible {
+  outline: none;
+  border: 2px solid var(--focus-color);
+}
+
+.submenu__item > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Текст слева, "+" или "-" справа */
+  width: 100%; /* Гарантируем растяжение текста внутри */
+  box-sizing: border-box; /* Учитываем padding */
+}
+
+.submenu__item > span > span {
+  margin-left: auto; /* "+" или "-" выравнивается справа */
+  margin-right: 10px; /* Отступ справа */
+  font-weight: bold; /* Жирный шрифт */
+  color: #000; /* Чёрный цвет */
+}
+
+.submenu__item .submenu__children {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.submenu__item.show-children .submenu__children {
+  display: flex;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+/* открытие */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
