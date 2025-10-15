@@ -1,5 +1,6 @@
 .submenu {
   width: 100%;
+	
 }
 
 .submenu ul {
@@ -23,14 +24,17 @@
   border-radius: 8px; /* Закруглённые углы */
   background-color: var(--block-child-background, #e8e8e8); /* Фон */
   box-sizing: border-box; /* Учитываем padding в ширине */
+	margin-bottom: 10px; /* Отступ между элементами */
 }
 
 .submenu__item:focus-visible {
+	
   outline: none;
   border: 2px solid var(--focus-color);
 }
 
 .submenu__item > span {
+	
   display: flex;
   align-items: center;
   justify-content: space-between; /* Текст слева, "+" или "-" справа */
@@ -39,6 +43,7 @@
 }
 
 .submenu__item > span > span {
+	
   margin-left: auto; /* "+" или "-" выравнивается справа */
   margin-right: 10px; /* Отступ справа */
   font-weight: bold; /* Жирный шрифт */
@@ -46,6 +51,7 @@
 }
 
 .submenu__item .submenu__children {
+	
   display: none;
   flex-direction: column;
   width: 100%;
@@ -53,6 +59,7 @@
 }
 
 .submenu__item.show-children .submenu__children {
+	
   display: flex;
   animation: slideDown 0.3s ease-in-out;
 }

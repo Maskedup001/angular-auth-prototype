@@ -40,6 +40,17 @@ menuItems: MenuItem[] = [
             showSubMenu: false,
             subMenuItems: []
           },
+					{
+            idItem: 6,
+            itemName: 'Статистика',
+            itemLink: 'statistics',
+            iconTypeId: 1,
+            icon: '',
+            itemOrder: 9,
+            parentItem: 1,
+            showSubMenu: false,
+            subMenuItems: []
+          },
           {
             idItem: 7,
             itemName: 'Админ Панель',
@@ -51,7 +62,7 @@ menuItems: MenuItem[] = [
             showSubMenu: false,
             subMenuItems: []
           },
-          {
+					{
             idItem: 8,
             itemName: 'Пользователи',
             itemLink: 'administration/users',
@@ -61,7 +72,18 @@ menuItems: MenuItem[] = [
             parentItem: 7,
             showSubMenu: false,
             subMenuItems: []
-          }
+          },
+					{
+            idItem: 9,
+            itemName: 'Общая',
+            itemLink: 'NULL',
+            iconTypeId: 1,
+            icon: '',
+            itemOrder: null,
+            parentItem: 6,
+            showSubMenu: false,
+            subMenuItems: []
+          },
         ];
 
 				private currentItemSubject = new BehaviorSubject<MenuItem>(this.menuItems[0]);
