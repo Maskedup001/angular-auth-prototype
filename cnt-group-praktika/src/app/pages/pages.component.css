@@ -22,8 +22,8 @@
 main {
   position: relative;
   flex: 1;
-  padding: 10px;
-  background-color: #f5f5f5;
+  padding: 20px;
+  /* background-color: #f5f5f5; */
   overflow: hidden;  /* Убираем возможное переполнение */
 }
 

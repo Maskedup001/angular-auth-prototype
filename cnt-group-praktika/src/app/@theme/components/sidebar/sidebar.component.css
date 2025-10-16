@@ -1,4 +1,10 @@
 .main-sidebar {
-  width: 240px;
-  padding: 10px;
+  width: 250px;
+  height: 100%;
+  background-color: var(--block-background);
+  padding: 20px;
+  border-right: 1px solid var(--block-border-color);
+  box-sizing: border-box;
+  overflow-y: auto;
 }
+

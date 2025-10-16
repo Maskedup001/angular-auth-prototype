@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/app/@theme/styles/theme-variables.css",
               "src/styles.css"
             ],
             "scripts": []

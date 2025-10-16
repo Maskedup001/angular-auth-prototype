@@ -43,11 +43,10 @@
 }
 
 .submenu__item > span > span {
-	
-  margin-left: auto; /* "+" или "-" выравнивается справа */
-  margin-right: 10px; /* Отступ справа */
-  font-weight: bold; /* Жирный шрифт */
-  color: #000; /* Чёрный цвет */
+  margin-left: auto;
+  margin-right: 10px;
+  font-weight: bold;
+  color: var(--text-color);
 }
 
 .submenu__item .submenu__children {
