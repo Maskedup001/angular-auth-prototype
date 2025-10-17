@@ -1,7 +1,8 @@
 <div class="theme-switcher">
+  <!-- Первая кнопка: светлая ↔ темная -->
   <button class="theme-switcher__button" (click)="toggleTheme()">
     <svg
-      *ngIf="currentTheme == 'light-theme'; else darkTheme"
+      *ngIf="getMainButtonIcon() == 'light-theme'; else darkTheme"
       xmlns="http://www.w3.org/2000/svg"
       height="24px"
       viewBox="0 -960 960 960"
@@ -27,4 +28,30 @@
       </svg>
     </ng-template>
   </button>
- </div> 
+
+  <!-- Вторая кнопка: синяя ↔ светлая -->
+  <button class="blue-theme-button" (click)="toggleBlueTheme()">
+    <svg
+      *ngIf="!isBlueThemeActive(); else homeIcon"
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+      fill="currentColor"
+    >
+      <path d="M480-80q-134 0-227-93t-93-227q0-100 67.5-217T480-880q105 120 172.5 237T720-400q0 134-93 227t-227 93Zm0-80q100 0 170-70t70-170q0-56-35-125T480-720q-80 90-115 159t-35 125q0 100 70 170t170 70Zm0-240Z"/>
+    </svg>
+
+    <ng-template #homeIcon>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="currentColor"
+      >
+        <path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/>
+      </svg>
+    </ng-template>
+  </button>
+</div>

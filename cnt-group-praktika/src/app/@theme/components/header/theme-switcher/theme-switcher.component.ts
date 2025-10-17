@@ -16,7 +16,37 @@ export class ThemeSwitcherComponent implements OnInit {
   }
 
   toggleTheme() {
-    this.currentTheme = this.currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
+    // Переключаем между светлой и темной, сохраняя состояние синей темы
+    if (this.currentTheme === 'light-theme') {
+      this.currentTheme = 'dark-theme';
+    } else if (this.currentTheme === 'dark-theme') {
+      this.currentTheme = 'light-theme';
+    } else if (this.currentTheme === 'blue-theme') {
+      // Если синяя тема, переключаем на темную
+      this.currentTheme = 'dark-theme';
+    }
     this.themeService.setTheme(this.currentTheme);
+  }
+
+  toggleBlueTheme() {
+    // Переключаем синюю тему с любой текущей темы
+    if (this.currentTheme === 'blue-theme') {
+      // Возвращаемся к предыдущей теме (светлой)
+      this.currentTheme = 'light-theme';
+    } else {
+      // Включаем синюю тему с любой текущей
+      this.currentTheme = 'blue-theme';
+    }
+    this.themeService.setTheme(this.currentTheme);
+  }
+
+  // Для отображения иконок
+  getMainButtonIcon(): string {
+    // Показываем светлую иконку когда синяя тема активна
+    return this.currentTheme === 'blue-theme' ? 'light-theme' : this.currentTheme;
+  }
+
+  isBlueThemeActive(): boolean {
+    return this.currentTheme === 'blue-theme';
   }
 }

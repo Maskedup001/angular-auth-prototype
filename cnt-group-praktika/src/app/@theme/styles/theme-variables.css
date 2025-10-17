@@ -35,3 +35,24 @@
   --scrollbar-thumb-border: #121518;
   --scrollbar-thumb-hover: #777;
 }
+
+
+
+.blue-theme {
+  --background-color: #e3f2fd;
+  --block-background: #bbdefb;
+  --block-border-color: #90caf9;
+
+  --block-text: #e3f2fd;
+  --text-color: #0d47a1;
+
+  --block-child-background: #e3f2fd;
+  --block-child-background-hover: #bbdefb;
+  --block-child-border-color: #90caf9;
+
+  /*scrollbar*/
+  --scrollbar-track: #bbdefb;
+  --scrollbar-thumb: #64b5f6;
+  --scrollbar-thumb-border: #bbdefb;
+  --scrollbar-thumb-hover: #42a5f5;
+}
