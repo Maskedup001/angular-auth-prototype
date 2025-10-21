@@ -6,6 +6,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./pages/pages-routing.module').then(module => module.PagesRoutingModule)
   }
+	
 ];
 
 @NgModule({
