@@ -5,15 +5,22 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AdministrationRoutingModule } from './administration-routing';
 import { FormsModule } from '@angular/forms';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { AddUserFormComponent } from './pages/users-page/components/add-user-form/add-user-form.component';
+
 
 @NgModule({
   declarations: [
     AdminPageComponent,
     UsersPageComponent,
-    NewsPageComponent
+    NewsPageComponent,
+    AddUserFormComponent
   ],  imports: [
     AdministrationRoutingModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+		SharedModule,
+    ReactiveFormsModule
   ]
 })export class AdministrationModule { }

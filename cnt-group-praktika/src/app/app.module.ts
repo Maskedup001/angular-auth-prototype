@@ -11,7 +11,8 @@ import { MenuParentsComponent } from './@theme/components/menu/components/menu-p
 import { MenuChildrensComponent } from './@theme/components/menu/components/menu-childrens/menu-childrens.component';
 import { ThemeSwitcherComponent } from './@theme/components/header/theme-switcher/theme-switcher.component';
 import { MainPageComponent } from './pages/sections/main-page/main-page.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './modules/shared/shared.module'; 
 
 
 @NgModule({
@@ -25,15 +26,15 @@ import { MainPageComponent } from './pages/sections/main-page/main-page.componen
     MenuChildrensComponent,
     ThemeSwitcherComponent,
     MainPageComponent,
-    
-    
-    
-    
   ],
+
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+		SharedModule,
+    ReactiveFormsModule,
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
