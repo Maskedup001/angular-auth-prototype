@@ -22,22 +22,39 @@ export class AddUserFormComponent implements OnInit {
 
   initAddUserForm(): void {
     this.addUserForm = new FormGroup({
-			userLogin: new FormControl('', [Validators.required, Validators.minLength(2)]),      userPassword: new FormControl('', [Validators.required]),
-      userFirstName: new FormControl('', [Validators.required]),
-      userLastName: new FormControl('', [Validators.required]),
-      userPatronymic: new FormControl('', [Validators.required]),
+      userLogin: new FormControl('', [Validators.required, Validators.minLength(2)]),
+			
+      userPassword: new FormControl('', [
+  			Validators.required,
+  			Validators.minLength(4),
+  			Validators.pattern('^(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$')
+			]),
+      userFirstName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.pattern('[a-zA-Zа-яА-ЯёЁ ]*')
+      ]),
+      userLastName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.pattern('[a-zA-Zа-яА-ЯёЁ ]*')
+      ]),
+      userPatronymic: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.pattern('[a-zA-Zа-яА-ЯёЁ ]*')
+      ]),
       userCreateDate: new FormControl(''),
       userBirthday: new FormControl('', [Validators.required])
     });
   }
 
   addNewUser() {
-
-		if (this.addUserForm.invalid) {
-    this.addUserForm.markAllAsTouched();
-    return;
-  	}	
-		
+    if (this.addUserForm.invalid) {
+      this.addUserForm.markAllAsTouched();
+      return;
+    }	
+    
     const newUser: UserRegister = {
       userId: this.users.length + 1,
       userLogin: this.addUserForm.get('userLogin')?.value,
