@@ -92,4 +92,23 @@
     </div>
     <button type="submit">Обновить пользователя</button>
   </form>
+	<!-- Блок для изменения ролей -->
+<form (ngSubmit)="onSubmitRoles()">
+  <label>
+    <input
+      type="checkbox"
+      [checked]="isAdmin"
+      (change)="onRoleChange('admin', $event)">
+    Админ
+  </label>
+  <label>
+    <input
+      type="checkbox"
+      [checked]="isStudent"
+      (change)="onRoleChange('student', $event)">
+    Студент
+  </label>
+  <button type="submit">Сохранить роли</button>
+</form>
 </main>
+
