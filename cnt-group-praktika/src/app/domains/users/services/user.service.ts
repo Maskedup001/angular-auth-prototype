@@ -13,23 +13,24 @@ export class UserService {
   ];
 
 	roles: { [key: string]: string[] } = {
-  '1': ['admin', 'student'],
-  '2': ['student'],
-  '3': ['admin']
-};
+    '1': ['admin', 'student'],
+    '2': ['student'],
+    '3': ['admin']
+  };
 
 	constructor() {}
 
 	getUserRoles(userId: string | number): Observable<string[]> {
-  return of(this.roles[userId] || []);
-}
+    return of(this.roles[userId] || []);
+  }
+
+  // ПОЛУЧЕНИЕ ВСЕХ ПОЛЬЗОВАТЕЛЕЙ 
+  getAllRoles(): Observable<{ [key: string]: string[] }> {
+    return of(this.roles);
+  }
 
 	updateUserRoles(userId: string | number, roles: string[]): Observable<any> {
-  this.roles[userId] = roles;
-  return of({ roles: this.roles });
+    this.roles[userId] = roles;
+    return of({ roles: this.roles });
+  }
 }
-	
-}
- 
- 
- 
