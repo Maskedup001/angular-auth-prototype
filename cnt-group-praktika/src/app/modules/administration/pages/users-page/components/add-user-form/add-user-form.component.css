@@ -28,16 +28,18 @@ form>div>input {
 }
 
 button {
+  padding: 8px;
   outline: none;
-  border: 1px solid var(--block-child-border-color);
+  border: none;
   border-radius: 7px;
-  height: 30px;
-  background-color: var(--block-child-background);
+  background-color: var(--color-indigo-500);
+  color: rgb(233, 233, 233);
+  font-size: 15px;
   cursor: pointer;
-  color: var(--text-color);
 }
 
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
