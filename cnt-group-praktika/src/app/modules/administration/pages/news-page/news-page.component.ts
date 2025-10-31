@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { News } from 'src/app/@theme/components/menu/models/news.model'; 
-import { NewsService } from 'src/app/@theme/components/menu/services/news.service'; 
+import { NewsService } from 'src/app/@theme/components/menu/services/news.service';
 
 @Component({
   selector: 'app-news-page',
@@ -19,7 +19,6 @@ export class NewsPageComponent implements OnInit {
 
   loadNews(): void {
     this.loading = true;
-    // Имитация загрузки данных
     setTimeout(() => {
       this.news = this.newsService.getAllNews();
       this.loading = false;
