@@ -1,23 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { News } from 'src/app/@theme/components/menu/models/news.model'; 
+import { NewsService } from 'src/app/@theme/components/menu/services/news.service'; 
 
 @Component({
   selector: 'app-news-page',
   templateUrl: './news-page.component.html',
   styleUrls: ['./news-page.component.css']
 })
-export class NewsPageComponent {
-  // newsItems = [
-  //   {
-  //     title: 'Добро пожаловать в Dashboard',
-  //     content: 'Панель управления успешно запущена и готова к работе.',
-  //     date: '20.01.2024',
-  //     author: 'Администратор'
-  //   },
-  //   {
-  //     title: 'Обновление статистики', 
-  //     content: 'Добавлены новые графики и отчеты для анализа данных.',
-  //     date: '19.01.2024',
-  //     author: 'Аналитик'
-  //   }
-  // ];
+export class NewsPageComponent implements OnInit {
+  news: News[] = [];
+  loading: boolean = true;
+
+  constructor(private newsService: NewsService) { }
+
+  ngOnInit(): void {
+    this.loadNews();
+  }
+
+  loadNews(): void {
+    this.loading = true;
+    // Имитация загрузки данных
+    setTimeout(() => {
+      this.news = this.newsService.getAllNews();
+      this.loading = false;
+    }, 500);
+  }
+
+  trackByNewsId(index: number, item: News): number {
+    return item.id;
+  }
 }
