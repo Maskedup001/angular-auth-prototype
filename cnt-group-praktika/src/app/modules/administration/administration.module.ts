@@ -18,7 +18,8 @@ import { EditUserComponent } from './pages/users-page/components/edit-user/edit-
     NewsPageComponent,
     AddUserFormComponent,
     EditUserComponent
-  ],  imports: [
+  ],  
+	imports: [
     AdministrationRoutingModule,
     CommonModule,
     FormsModule,

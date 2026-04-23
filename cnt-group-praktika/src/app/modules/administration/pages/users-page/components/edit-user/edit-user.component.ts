@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserRegister } from 'src/app/domains/users/models/user.model';
-import { UserService } from 'src/app/domains/users/services/user.service';  // Добавлен импорт UserService
+import { UserRegister } from '../../../../../../domains/users/models/user.model';
+import { UserService } from '../../../../../../domains/users/services/user.service';  // Добавлен импорт UserService
 
 @Component({
   selector: 'app-edit-user',
@@ -57,7 +57,7 @@ export class EditUserComponent implements OnInit, OnChanges {
 
   loadUserRoles() {
     if (this.selectedUser) {
-      this.userService.getUserRoles(this.selectedUser.userId).subscribe(roles => {
+      this.userService.getUserRoles(this.selectedUser.userId).subscribe((roles: any) => {
         this.isAdmin = roles.includes('admin');
         this.isStudent = roles.includes('student');
       });
@@ -96,7 +96,7 @@ export class EditUserComponent implements OnInit, OnChanges {
       if (this.isStudent) roles.push('student');
       this.userService.updateUserRoles(this.selectedUser.userId, roles).subscribe(response => {
         console.log('Roles updated:', response);
-      }, error => {
+      }, (error: any) => {
         console.error('Error updating roles:', error);
       });
     }

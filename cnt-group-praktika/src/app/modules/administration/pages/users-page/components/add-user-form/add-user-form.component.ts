@@ -1,7 +1,7 @@
 import { UserService } from '../../../../../../domains/users/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserRegister } from 'src/app/domains/users/models/user.model';
+import { UserRegister } from '../../../../../../domains/users/models/user.model';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -12,13 +12,14 @@ import { DatePipe } from '@angular/common';
 })
 export class AddUserFormComponent implements OnInit {
   addUserForm: FormGroup = new FormGroup({});
-  users: UserRegister[] = this.UserService.users;
+  users: UserRegister[] = [];
 
-  constructor(private UserService: UserService, private datePipe: DatePipe) {}
+  constructor(private userService: UserService, private datePipe: DatePipe) {}
 
-  ngOnInit(): void {
-    this.initAddUserForm();
-  }
+ngOnInit(): void {
+  this.initAddUserForm();
+  this.users = this.userService.users; // Присваивай данные здесь
+}
 
   initAddUserForm(): void {
     this.addUserForm = new FormGroup({
