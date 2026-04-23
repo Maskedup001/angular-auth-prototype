@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './sections/main-page/main-page.component';
 import { PagesComponent } from './pages.component';
-
-
+import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -14,9 +13,10 @@ const routes: Routes = [
         path: 'mainPage',
         component: MainPageComponent,
       },
-			{
+      {
         path: 'administration',
-         loadChildren: () => import('../modules/administration/administration.module').then(module => module.AdministrationModule)
+        canActivate: [AuthGuard], // Защита админки
+        loadChildren: () => import('../modules/administration/administration.module').then(module => module.AdministrationModule)
       },
       {
         path: '',
@@ -28,9 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes)
-  ],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class PagesRoutingModule { }

@@ -5,7 +5,7 @@
       *ngFor="let subItem of menuChildrenItems"
       [ngClass]="{ 'submenu__item--show-children': subItem.showSubMenu }"
       tabindex="0"
-      [routerLink]="subItem.itemLink"
+      (click)="navigateTo(subItem, $event)"
     >
       <span class="submenu__wrapper">
         <span
