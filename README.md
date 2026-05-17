@@ -1,27 +1,47 @@
-# CntGroupPraktika
+# ProtoType: Client-Side Auth & UI Concepts
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
+> **Status: Educational Prototype (MVP)** > Данный проект является концептуальным прототипом для отработки механизмов авторизации на стороне клиента и тестирования архитектурных решений в Angular.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🎯 Цель прототипа
+Этот репозиторий служил "песочницей" для проектирования основной системы. Здесь реализованы и протестированы ключевые функции безопасности и интерфейса, которые позже легли в основу основного проекта админ-панели.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🔑 Протестированные технологии
 
-## Build
+### 1. Авторизация и безопасность
+* **Auth Guard:** Реализация защиты роутов. Доступ к внутренним страницам ограничен для неавторизованных пользователей.
+* **Token Handling:** Отработка логики хранения и передачи токенов/сессий.
+* **Redirection Logic:** Автоматический редирект пользователя на страницу логина при отсутствии прав доступа.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 2. UI/UX Концепции
+* **Layout Scaffolding:** Создание базовой структуры приложения (Sidebar, Header, Content Area).
+* **Modular UI:** Эксперименты с разделением интерфейса на переиспользуемые модули.
+* **Reactive Forms:** Базовая валидация полей ввода для форм входа.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🛠 Технический стек
+* **Framework:** `Angular 16+`
+* **Language:** `TypeScript`
+* **Security:** `Angular Router Guards`
+* **Styling:** `SCSS`
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 📂 Структура репозитория
+* `src/` — Исходный код прототипа (компоненты, сервисы, гварды).
+* `lesson/` — Архив учебных материалов и промежуточных этапов разработки (история обучения).
+* `angular.json` / `package.json` — Стандартные конфигурации окружения.
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## ⚙️ Как запустить
+1. `npm install` — установка зависимостей.
+2. `ng serve` — запуск локального сервера.
+3. Перейдите по адресу `http://localhost:4200/`.
+
+---
+*Проект заархивирован и используется как база знаний для текущих разработок.*
