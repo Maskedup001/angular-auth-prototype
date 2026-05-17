@@ -1,56 +1,27 @@
+# CntGroupPraktika
 
-# ProtoType: Client-Side Auth & UI Concepts
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
 
-> **Status: Archived / Educational Prototype**
-> Данный проект является концептуальным прототипом (MVP) для отработки навыков Angular и основ клиентской безопасности. 
+## Development server
 
----
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-### 🛠 Стек технологий
+## Code scaffolding
 
-* **Framework:** Angular 16+
-* **Security:** Angular Route Guards
-* **Storage:** LocalStorage (имитация сессии)
-* **State Management:** RxJS Observables
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
----
+## Build
 
-### 🔐 Логика авторизации (Client-Side)
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-В приложении реализована механика **Client-Side Authorization**. Это учебный пример того, как работает разграничение прав доступа на уровне фронтенда.
+## Running unit tests
 
-**Механизм работы:**
-* Маршрут `/administration` защищен с помощью сервиса `AuthGuard`.
-* При переходе система проверяет наличие ключа `token` в `localStorage` браузера.
-* Если токен отсутствует, доступ блокируется на уровне роутинга.
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
----
+## Running end-to-end tests
 
-### 🧪 Тестирование механизмов защиты
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-Для имитации процесса авторизации используйте консоль разработчика (F12):
+## Further help
 
-**1. Имитация входа (установка токена):**
-```javascript
-localStorage.setItem('token', 'admin_access_token_v1');
-
-```
-
-**2. Имитация выхода (удаление токена):**
-
-```javascript
-localStorage.removeItem('token');
-
-```
-
----
-
-### 🏗 Структура проекта
-
-* `src/app/core/guards/auth.guard.ts` — логика проверки прав доступа.
-* `src/app/pages/pages-routing.module.ts` — конфигурация защищенных путей.
-* `src/app/@theme/components/menu/` — обработка навигации и состояний меню.
-
----
-
-*Проект реализован в учебных целях в рамках освоения навыков разработки защищенных систем.*
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
