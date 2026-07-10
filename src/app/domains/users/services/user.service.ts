@@ -2,18 +2,16 @@ import { Injectable } from "@angular/core";
 import { UserRegister } from "../models/user.model";
 import { Observable, of } from 'rxjs';
 
-@Injectable ({
+@Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  // Твои данные пользователей
   users: UserRegister[] = [
     {userId: '1', userLogin: 'user1', userPassword: 'root', userEnabled: '1', userFirstName: 'Иван', userLastName: 'Иванов', userPatronymic: 'Иванович', userCreateDate: '2024-06-05 12:00:00', userBirthday: '2000-06-09'},
     {userId: '2', userLogin: 'user2', userPassword: 'root', userEnabled: '2', userFirstName: 'Иван', userLastName: 'Иванов', userPatronymic: 'Иванович', userCreateDate: '2024-06-05 12:00:00', userBirthday: '2000-06-09'},
     {userId: '3', userLogin: 'user3', userPassword: 'root', userEnabled: '3', userFirstName: 'Иван', userLastName: 'Иванов', userPatronymic: 'Иванович', userCreateDate: '2024-06-05 12:00:00', userBirthday: '2000-06-09'}
   ];
 
-  // Твои роли
   roles: { [key: string]: string[] } = {
     '1': ['admin', 'student'],
     '2': ['student'],
@@ -22,30 +20,37 @@ export class UserService {
 
   constructor() {}
 
-  // --- МЕТОДЫ ДЛЯ ИБ-ОПТИМИЗАЦИИ ---
+  // --- МЕТОДЫ ДЛЯ ИБ-ОПТИМИЗАЦИИ (ОБНОВЛЕННЫЕ) ---
 
   /**
-   * Проверка: залогинен ли пользователь (есть ли токен в браузере)
+   * Проверка: залогинен ли пользователь.
+   * ТЕПЕРЬ ПРОВЕРЯЕТ И localStorage, И sessionStorage (для разработки)
    */
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('token');
+    // Ищем токен в localStorage (для постоянного входа) ИЛИ в sessionStorage (для временного теста через F12)
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+    
+    // Если нашли что-то, что не равно null или пустой строке -> значит авторизован
+    return !!token && token.length > 0;
   }
 
   /**
-   * Метод для выхода (удаление прав)
+   * Метод для выхода (очистка данных и редирект)
    */
   logout(): void {
+    // Для безопасности чистим оба хранилища
     localStorage.removeItem('token');
-    // Можно добавить редирект на главную, если нужно
+    sessionStorage.removeItem('token');
+    
+    // Здесь можешь добавить: this.router.navigate(['/mainPage']); если передашь Router в конструктор
   }
 
-  // --- ТВОИ ОРИГИНАЛЬНЫЕ МЕТОДЫ ---
+  // --- ТВОИ ОРИГИНАЛЬНЫЕ МЕТОДЫ (БЕЗ ИЗМЕНЕНИЙ) ---
 
   getUserRoles(userId: string | number): Observable<string[]> {
     return of(this.roles[userId] || []);
   }
 
-  // ПОЛУЧЕНИЕ ВСЕХ ПОЛЬЗОВАТЕЛЕЙ 
   getAllRoles(): Observable<{ [key: string]: string[] }> {
     return of(this.roles);
   }
