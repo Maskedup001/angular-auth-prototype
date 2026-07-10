@@ -41,7 +41,6 @@ export class MenuChildrensComponent implements OnInit {
 
     if (!item.itemLink || ignoredPaths.includes(item.itemLink)) {
       console.log('Клик по категории (без перехода):', item.itemName);
-      this.toggleSubMenu(item);
       return; // Прерываем выполнение, чтобы не было ошибки NG04002
     }
 
