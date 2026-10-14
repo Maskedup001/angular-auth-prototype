@@ -3,6 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "ignoreDeprecations": "5.0",
+    "esModuleInterop": true,
     "rootDir": "src",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
