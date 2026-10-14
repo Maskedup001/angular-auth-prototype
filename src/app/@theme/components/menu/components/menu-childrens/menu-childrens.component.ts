@@ -5,9 +5,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-menu-childrens',
-  templateUrl: './menu-childrens.component.html',
-  styleUrls: ['./menu-childrens.component.css']
+    selector: 'app-menu-childrens',
+    templateUrl: './menu-childrens.component.html',
+    styleUrls: ['./menu-childrens.component.css'],
+    standalone: false
 })
 export class MenuChildrensComponent implements OnInit {
   @Input() sidebarHidden: boolean = true;
